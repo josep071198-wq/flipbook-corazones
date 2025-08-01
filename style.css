@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+body {
+  font-family: 'Libre Baskerville', serif;
+  background: #fff0f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+audio {
+  display: none;
+}
+
+.flipbook {
+  perspective: 2000px;
+}
+
+.book {
+  width: 300px;
+  height: 450px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  backface-visibility: hidden;
+  transform-origin: left;
+  transition: transform 0.8s ease, z-index 0.8s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  text-align: center;
+  line-height: 1.6em;
+  z-index: 10;
+  font-family: 'Libre Baskerville', serif;
+  color: #4a2f2f;
+}
+
+/* Portada */
+.cover {
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  color: white;
+  font-weight: bold;
+  font-size: 1.8em;
+  z-index: 20;
+  font-family: 'Libre Baskerville', serif;
+  cursor: pointer;
+}
+
+.cover small {
+  display: block;
+  font-size: 0.7em;
+  font-style: italic;
+  margin-top: 10px;
+  color: #fffacd;
+}
+
+/* Contraportada */
+.backcover {
+  background: linear-gradient(135deg, #fddde6, #ffb6c1);
+  color: #333;
+  font-weight: bold;
+  font-size: 1.4em;
+  z-index: 5;
+  font-family: 'Libre Baskerville', serif;
+}
+
+/* Página final */
+.final {
+  background: #ffebcd;
+  font-style: italic;
+  font-size: 1.6em;
+  color: #6b4226;
+  font-family: 'Libre Baskerville', serif;
+}
+
+/* Colores de páginas */
+.page1 { background: #ffe4e1; }
+.page2 { background: #f0e68c; }
+.page3 { background: #e0ffff; }
+.page4 { background: #fafad2; }
+.page5 { background: #f5deb3; }
+.page6 { background: #e6e6fa; }
+.page7 { background: #f8f8ff; }
+.page8 { background: #e0ffe0; }
+
+/* Página volteada */
+.page.flipped {
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+/* Quitar botones */
+.controls, button {
+  display: none;
+}
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.heart {
+  position: absolute;
+  top: 100%;
+  width: 30px;
+  height: 30px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+  background-size: cover;
+  opacity: 0.8;
+  animation: floatUp linear forwards;
+}
+
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
